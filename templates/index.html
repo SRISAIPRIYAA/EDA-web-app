@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automatic EDA Web App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Automatic EDA Web App</h1>
+            <p>Upload a CSV file and explore your data with automated analysis</p>
+        </header>
+
+        <section class="upload-section">
+            <h2>Step 1: Upload CSV File</h2>
+            <form id="uploadForm" enctype="multipart/form-data">
+                <input type="file" id="fileInput" accept=".csv" required>
+                <button type="submit" class="btn btn-primary">Upload CSV</button>
+            </form>
+            <div id="uploadMessage"></div>
+        </section>
+
+        <div id="mainContent" style="display:none;">
+            <!-- Dataset Preview -->
+            <section class="section">
+                <h2>Dataset Preview</h2>
+                <div class="stats-row">
+                    <div class="stat-card">
+                        <div class="stat-label">Rows</div>
+                        <div class="stat-value" id="rowCount">-</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Columns</div>
+                        <div class="stat-value" id="colCount">-</div>
+                    </div>
+                </div>
+
+                <h3>First 5 Rows</h3>
+                <div id="previewHead" class="table-container"></div>
+
+                <h3>Last 5 Rows</h3>
+                <div id="previewTail" class="table-container"></div>
+            </section>
+
+            <!-- Data Types Report -->
+            <section class="section">
+                <h2>Data Types Report</h2>
+                <div id="datatypesReport"></div>
+            </section>
+
+            <!-- Missing Values Report -->
+            <section class="section">
+                <h2>Missing Values Report</h2>
+                <div id="missingValuesReport"></div>
+            </section>
+
+            <!-- Data Cleaning -->
+            <section class="section">
+                <h2>Data Cleaning</h2>
+                <button id="dropMissingBtn" class="btn btn-warning">Drop Rows with Missing Values</button>
+                <div id="cleaningMessage"></div>
+            </section>
+
+            <!-- Column Analysis -->
+            <section class="section">
+                <h2>Column Analysis</h2>
+                <label for="columnSelect">Select a column to analyze:</label>
+                <select id="columnSelect">
+                    <option value="">-- Select Column --</option>
+                </select>
+                <button id="analyzeBtn" class="btn btn-primary">Analyze Column</button>
+            </section>
+
+            <!-- Statistics & Visualizations -->
+            <section class="section">
+                <h2>Column Statistics</h2>
+                <div id="statsContainer"></div>
+            </section>
+
+            <section class="section">
+                <h2>Insights</h2>
+                <div id="insightsContainer"></div>
+            </section>
+
+            <section class="section">
+                <h2>Visualizations</h2>
+                <div id="plotsContainer"></div>
+            </section>
+
+            <!-- Correlation Heatmap -->
+            <section class="section">
+                <h2>Correlation Heatmap</h2>
+                <button id="correlationBtn" class="btn btn-primary">Generate Heatmap</button>
+                <div id="heatmapContainer"></div>
+            </section>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
