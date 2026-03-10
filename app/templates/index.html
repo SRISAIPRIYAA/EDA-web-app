@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Summary</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<header class="navbar">
+    <div class="logo">SREE NARAYANA</div>
+
+    <div class="month-display" id="monthDisplay"></div>
+
+    <div class="hamburger" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</header>
+<div id="overlay" class="overlay" onclick="closeMenu()"></div>
+
+<!-- Sidebar -->
+<div id="sidebar" class="sidebar">
+    <a href="{{ url_for('api.home') }}">Dashboard</a>
+    <a href="{{ url_for('api.employee_page') }}">Employees</a>
+    <a href="{{ url_for('api.attendance_page') }}">Attendance</a>
+    <a href="{{ url_for('api.payslip_page') }}">Payslip</a>
+    <a href="{{ url_for('api.old_employees_page') }}">Old Employees</a>
+</div>
+
+<main class="container">
+
+    <div class="title-row">
+        <h2>Employee Summary of Month <span id="monthName"></span></h2>
+    </div>
+
+    <div class="table-container">
+        <table id="employeeTable">
+            <thead>
+                <tr>
+                    <th>Employee Name</th>
+                    <th>Normal</th>
+                    <th>Overtime</th>
+                    <th>Total Hours</th>
+                    <th>No. of Days Worked</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- JS will insert rows -->
+            </tbody>
+        </table>
+    </div>
+
+</main>
+
+<script src="{{ url_for('static', filename='index.js') }}"></script>
+</body>
+</html>

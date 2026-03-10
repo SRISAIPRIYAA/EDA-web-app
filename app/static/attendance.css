@@ -1,0 +1,369 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #0b0b0f;
+    color: #e6e6eb;
+    font-family: 'Inter', sans-serif;
+}
+
+/* ===== NAVBAR ===== */
+
+.navbar {
+    background: #111118;
+    padding: 22px 45px;
+    border-bottom: 1px solid #1c1c26;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: 500;
+}
+
+/* ===== MAIN ===== */
+
+.container {
+    padding: 50px 90px;
+}
+
+h2 {
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+/* ===== CARD (ACTION BOX) ===== */
+
+.card {
+    background: #111118;
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid #1f1f2b;
+    margin-bottom: 50px;
+}
+
+/* Action row */
+
+.action-row {
+    margin-bottom: 20px;
+}
+
+select, input {
+    padding: 10px 14px;
+    background: #151520;
+    border: 1px solid #1f1f2b;
+    color: #e6e6eb;
+    border-radius: 6px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+select:focus,
+input:focus {
+    outline: none;
+    border-color: #c4b5fd;
+}
+
+/* Button */
+
+button {
+    padding: 10px 16px;
+    background: #c4b5fd;
+    border: none;
+    border-radius: 6px;
+    color: #0b0b0f;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+button:hover {
+    background: #a78bfa;
+}
+
+/* Hidden utility */
+
+.hidden {
+    display: none;
+}
+
+/* ===== CALENDAR SECTION ===== */
+
+.calendar-section {
+    display: flex;
+    gap: 60px;
+    align-items: flex-start;
+}
+
+/* ===== CALENDAR GRID ===== */
+
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 52px);
+    gap: 10px;
+}
+
+/* Day box */
+
+.day {
+    width: 52px;
+    height: 52px;
+    background: #1a1a25;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    position: relative;
+    transition: 0.2s ease;
+}
+
+/* Hover for normal day */
+
+.day:hover {
+    background: #222235;
+}
+
+/* Marked day (attendance exists) */
+
+.day.marked {
+    background: #16a34a;
+    color: white;
+}
+
+/* ===== TOOLTIP (Floating Like LeetCode) ===== */
+
+.tooltip {
+    position: absolute;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #000;
+    padding: 6px 10px;
+    font-size: 12px;
+    border-radius: 5px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.15s ease;
+}
+
+.day.marked:hover .tooltip {
+    opacity: 1;
+}
+
+/* ===== INFO PANEL (Month & Year Side) ===== */
+
+.info-panel {
+    font-size: 16px;
+    line-height: 28px;
+}
+
+/* ===== Hamburger ===== */
+
+.hamburger {
+    width: 28px;
+    height: 22px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    position: absolute;
+    right: 40px;
+    top: 28px;
+    z-index: 1001;
+}
+
+.hamburger span {
+    height: 3px;
+    background: #ffffff;
+    border-radius: 2px;
+    transition: 0.3s ease;
+}
+
+/* ===== Sidebar ===== */
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -260px;
+    width: 260px;
+    height: 100vh;
+    background: #0f1125;
+    padding-top: 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    padding-left: 30px;
+    transition: right 0.3s ease;
+    z-index: 1000;
+    box-shadow: -4px 0 15px rgba(0,0,0,0.4);
+}
+
+.sidebar a {
+    color: #e6e6eb;
+    text-decoration: none;
+    font-size: 16px;
+    transition: 0.2s ease;
+}
+
+.sidebar a:hover {
+    color: #b4a7f5;
+}
+
+/* ===== Overlay ===== */
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(2px);
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s ease;
+    z-index: 999;
+}
+
+/* ===== Active States ===== */
+
+.sidebar.active {
+    right: 0;
+}
+
+.overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+.hidden {
+    display: none;
+}
+
+.calendar-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+}
+
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+    flex: 1;
+}
+
+.calendar-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    min-width: 160px;
+}
+/* ===== HAMBURGER ===== */
+
+.hamburger {
+    margin-left: auto;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.hamburger span {
+    width: 26px;
+    height: 2px;
+    background: #e6e6eb;
+    transition: 0.3s ease;
+}
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -280px;
+    width: 280px;
+    height: 100%;
+    background: #111118;
+    padding-top: 90px;
+    transition: 0.35s ease;
+    box-shadow: -10px 0 40px rgba(0,0,0,0.7);
+    z-index: 999;
+}
+
+.sidebar.active {
+    right: 0;
+}
+
+.sidebar a {
+    display: block;
+    padding: 18px 35px;
+    color: #d4d4da;
+    text-decoration: none;
+    transition: 0.25s ease;
+}
+
+.sidebar a:hover {
+    background: #1a1a25;
+    color: #c4b5fd;
+}
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.3s ease;
+    z-index: 998;
+}
+
+.overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -280px;
+    width: 280px;
+    height: 100%;
+    background: #111118;
+    padding-top: 90px;
+    transition: 0.35s ease;
+    box-shadow: -10px 0 40px rgba(0,0,0,0.7);
+    z-index: 999;
+}
+
+.sidebar.active {
+    right: 0;
+}
+
+.day-popup{
+    position:absolute;
+    background:#111118;
+    border:1px solid #1f1f2b;
+    padding:10px;
+    border-radius:8px;
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    z-index:2000;
+}
+
+.day-popup button{
+    padding:8px 12px;
+    background:#c4b5fd;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+    font-size:13px;
+}
+
+.day-popup button:hover{
+    background:#a78bfa;
+}

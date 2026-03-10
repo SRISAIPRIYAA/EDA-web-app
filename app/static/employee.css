@@ -1,0 +1,234 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #0b0b0f;
+    color: #e6e6eb;
+    font-family: 'Inter', sans-serif;
+}
+
+/* ===== NAVBAR ===== */
+
+.navbar {
+    background: #111118;
+    padding: 22px 45px;
+    border-bottom: 1px solid #1c1c26;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.page-title {
+    color: #c4b5fd;
+    font-weight: 500;
+}
+
+/* ===== MAIN ===== */
+
+.container {
+    padding: 60px 90px;
+}
+
+/* ===== CARD ===== */
+
+.card {
+    background: #111118;
+    padding: 30px;
+    border-radius: 10px;
+    margin-bottom: 50px;
+    border: 1px solid #1f1f2b;
+}
+
+.card h3 {
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+/* ===== FORM ===== */
+
+.form-group {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+input {
+    padding: 12px 15px;
+    background: #151520;
+    border: 1px solid #1f1f2b;
+    color: #e6e6eb;
+    border-radius: 6px;
+    flex: 1;
+    min-width: 200px;
+}
+
+input:focus {
+    outline: none;
+    border-color: #c4b5fd;
+}
+
+button {
+    padding: 12px 20px;
+    background: #c4b5fd;
+    color: #0b0b0f;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: 0.2s ease;
+}
+
+button:hover {
+    background: #a78bfa;
+}
+
+#message {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #c4b5fd;
+}
+
+/* ===== TABLE ===== */
+
+.table-container {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 600px;
+    background: #111118;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+thead {
+    background: #14141d;
+}
+
+thead th {
+    padding: 18px;
+    text-align: left;
+    color: #c4b5fd;
+    border-bottom: 1px solid #1f1f2b;
+}
+
+tbody tr {
+    border-bottom: 1px solid #1a1a24;
+}
+
+tbody tr:hover {
+    background: #151520;
+}
+
+td {
+    padding: 16px;
+}
+
+/* ===== ACTION BUTTONS ===== */
+
+.action-btn {
+    padding: 6px 12px;
+    margin-right: 8px;
+    font-size: 13px;
+}
+
+.update {
+    background: #a78bfa;
+    color: #0b0b0f;
+}
+
+.delete {
+    background: #ef4444;
+    color: white;
+}
+
+.update:hover {
+    background: #8b5cf6;
+}
+
+.delete:hover {
+    background: #dc2626;
+}
+
+/* ===== SIDEBAR ===== */
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -280px;
+    width: 280px;
+    height: 100%;
+    background: #111118;
+    padding-top: 90px;
+    transition: 0.35s ease;
+    box-shadow: -10px 0 40px rgba(0,0,0,0.7);
+    z-index: 999;
+}
+
+.sidebar.active {
+    right: 0;
+}
+
+.sidebar a {
+    display: block;
+    padding: 18px 35px;
+    color: #d4d4da;
+    text-decoration: none;
+    transition: 0.25s ease;
+}
+
+.sidebar a:hover {
+    background: #1a1a25;
+    color: #c4b5fd;
+}
+
+/* ===== OVERLAY ===== */
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.3s ease;
+    z-index: 998;
+}
+
+.overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* ===== HAMBURGER ===== */
+
+.hamburger {
+    margin-left: auto;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.hamburger span {
+    width: 26px;
+    height: 2px;
+    background: #e6e6eb;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;  /* Important */
+}

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Employees</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='employee.css') }}">
+</head>
+<body>
+
+<header class="navbar">
+    <div class="logo">SREE NARAYANA</div>
+
+    <div class="page-title">Employee Management</div>
+
+    <div class="hamburger" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+<div id="overlay" class="overlay" onclick="closeMenu()"></div>
+
+<div id="sidebar" class="sidebar">
+    <a href="{{ url_for('api.home') }}">Dashboard</a>
+    <a href="{{ url_for('api.employee_page') }}">Employees</a>
+    <a href="{{ url_for('api.attendance_page') }}">Attendance</a>
+    <a href="{{ url_for('api.payslip_page') }}">Payslip</a>
+    <a href="{{ url_for('api.old_employees_page') }}">Old Employees</a>
+</div>
+
+</header>
+
+<main class="container">
+
+    <!-- Add Employee Card -->
+    <div class="card">
+        <h3>Add New Employee</h3>
+
+        <div class="form-group">
+            <input type="text" id="name" placeholder="Employee Name">
+            <input type="number" id="salary" placeholder="Salary Per Hour">
+            <button onclick="addEmployee()">Add Employee</button>
+        </div>
+
+        <div id="message"></div>
+    </div>
+
+    <!-- Employee Table -->
+    <div class="table-container">
+        <table id="employeeTable">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Salary Per Hour</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- JS will populate -->
+            </tbody>
+        </table>
+    </div>
+
+</main>
+
+<script src="{{ url_for('static', filename='employee.js') }}"></script>
+</body>
+</html>

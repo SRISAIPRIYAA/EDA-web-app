@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Attendance</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='attendance.css') }}">
+</head>
+<body>
+
+<header class="navbar">
+    <div class="logo">SREE NARAYANA</div>
+
+    <div class="hamburger" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</header>
+
+<div id="overlay" class="overlay" onclick="closeMenu()"></div>
+
+<div id="sidebar" class="sidebar">
+    <a href="{{ url_for('api.home') }}">Dashboard</a>
+    <a href="{{ url_for('api.employee_page') }}">Employees</a>
+    <a href="{{ url_for('api.attendance_page') }}">Attendance</a>
+    <a href="{{ url_for('api.payslip_page') }}">Payslip</a>
+    <a href="{{ url_for('api.old_employees_page') }}">Old Employees</a>
+</div>
+
+<main class="container">
+
+    <h2>Add Attendance</h2>
+
+    <!-- STEP 1: SELECT EMPLOYEE + MONTH + YEAR -->
+    <div class="card">
+        <select id="employeeSelect">
+            <option value="">Select Employee</option>
+        </select>
+
+        <select id="monthSelect"></select>
+
+        <select id="yearSelect"></select>
+
+        <button onclick="initializeAttendance()">Load</button>
+    </div>
+
+    <!-- STEP 2: ACTION BOX -->
+    <div id="actionCard" class="card hidden">
+
+        <select id="actionSelect">
+            <option value="">Choose Action</option>
+            <option value="add">Add Attendance</option>
+            <option value="update">Update Attendance</option>
+            <option value="delete">Delete Attendance</option>
+        </select>
+
+        <input type="date" id="dateInput">
+
+        <!-- step allows decimal hours -->
+        <input type="number" id="hoursInput" placeholder="Hours worked" step="0.01">
+
+        <button onclick="submitAttendance()">Submit</button>
+
+    </div>
+
+    <!-- STEP 3: CALENDAR -->
+    <div id="calendarSection" class="calendar-section hidden">
+
+    <div class="calendar-wrapper">
+
+        <div id="calendar" class="calendar"></div>
+
+        <div class="calendar-controls">
+            <select id="calendarMonth"></select>
+            <select id="calendarYear"></select>
+        </div>
+
+    </div>
+
+</div>
+
+</main>
+
+<script src="{{ url_for('static', filename='attendance.js') }}"></script>
+</body>
+</html>

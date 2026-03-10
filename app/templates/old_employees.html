@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<title>Old Employees</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="{{ url_for('static', filename='old_employees.css') }}">
+
+</head>
+
+<body>
+
+<header class="navbar">
+
+<div class="logo">SREE NARAYANA</div>
+
+<div class="hamburger" onclick="toggleMenu()">
+<span></span>
+<span></span>
+<span></span>
+</div>
+
+</header>
+
+
+<div id="overlay" class="overlay" onclick="closeMenu()"></div>
+
+
+<div id="sidebar" class="sidebar">
+
+<a href="{{ url_for('api.home') }}">Dashboard</a>
+<a href="{{ url_for('api.employee_page') }}">Employees</a>
+<a href="{{ url_for('api.attendance_page') }}">Attendance</a>
+<a href="{{ url_for('api.payslip_page') }}">Payslip</a>
+<a href="{{ url_for('api.old_employees_page') }}">Old Employees</a>
+
+</div>
+
+
+
+<main class="container">
+
+<h2>Old Employees</h2>
+
+
+<div class="card">
+
+<select id="employeeSelect">
+<option value="">Select Employee</option>
+</select>
+
+<select id="monthSelect"></select>
+
+<select id="yearSelect"></select>
+
+<button onclick="loadEmployeeData()">Load</button>
+
+</div>
+
+
+
+<div id="resultSection" class="result-section hidden">
+
+
+<div class="content-row">
+
+
+<div class="calendar-wrapper">
+
+<div id="calendar" class="calendar"></div>
+
+</div>
+
+
+
+<div id="payslipPreview" class="payslip">
+
+
+<div class="payslip-header">
+
+<h3>Sree Narayana Engineering Works</h3>
+<p id="generatedTime"></p>
+
+</div>
+
+
+<hr>
+
+
+<div class="payslip-info">
+
+<p><strong>Employee:</strong> <span id="empName"></span></p>
+<p><strong>Month:</strong> <span id="empMonth"></span> <span id="empYear"></span></p>
+
+</div>
+
+
+<hr>
+
+
+<div class="payslip-details">
+
+<p><span>Total Days:</span><span id="totalDays"></span></p>
+
+<p><span>Days Worked:</span><span id="daysWorked"></span></p>
+
+<p><span>Overtime Hours:</span><span id="otHours"></span></p>
+
+<p><span>Overtime Wage:</span><span>₹ <span id="otWage"></span></span></p>
+
+<p><span>12+ Hour Days:</span><span id="twelveHourCount"></span></p>
+
+<p><span>12 Hour Bonus:</span><span>₹ <span id="twelveHourBonus"></span></span></p>
+
+<p><span>Base Salary:</span><span>₹ <span id="baseSalary"></span></span></p>
+
+<p><span>Attendance Bonus:</span><span>₹ <span id="attendanceBonus"></span></span></p>
+
+<p><span>Allowance:</span><span>₹ <span id="allowance"></span></span></p>
+
+<p><span>Advance Deduction:</span><span>₹ <span id="advance"></span></span></p>
+
+</div>
+
+
+<hr>
+
+
+<div class="payslip-total">
+
+<h3>Total Payable Amount: ₹ <span id="totalSalary"></span></h3>
+
+</div>
+
+
+<div class="payslip-actions">
+
+<button onclick="downloadPayslip()">Download Payslip</button>
+
+</div>
+
+
+</div>
+
+
+</div>
+
+</div>
+
+
+</main>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<script src="{{ url_for('static', filename='old_employees.js') }}"></script>
+
+</body>
+
+</html>

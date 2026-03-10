@@ -1,0 +1,376 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #0b0b0f;
+    color: #e6e6eb;
+    font-family: 'Inter', sans-serif;
+}
+
+/* ===== NAVBAR ===== */
+
+.navbar {
+    background: #111118;
+    display: flex;
+    align-items: center;
+    padding: 22px 45px;
+    border-bottom: 1px solid #1c1c26;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+.hamburger {
+    margin-left: auto;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.hamburger span {
+    width: 26px;
+    height: 2px;
+    background: #e6e6eb;
+}
+
+/* ===== SIDEBAR ===== */
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -280px;
+    width: 280px;
+    height: 100%;
+    background: #111118;
+    padding-top: 90px;
+    transition: 0.35s ease;
+    box-shadow: -10px 0 40px rgba(0,0,0,0.7);
+    z-index: 999;
+}
+
+.sidebar.active {
+    right: 0;
+}
+
+.sidebar a {
+    display: block;
+    padding: 18px 35px;
+    color: #d4d4da;
+    text-decoration: none;
+    transition: 0.25s ease;
+}
+
+.sidebar a:hover {
+    background: #1a1a25;
+    color: #c4b5fd;
+}
+
+/* ===== OVERLAY ===== */
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.3s ease;
+}
+
+.overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* ===== MAIN ===== */
+
+.container {
+    padding: 60px 90px;
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 30px;
+}
+
+/* ===== CARD ===== */
+
+.card {
+    background: #111118;
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid #1c1c26;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    align-items: center;
+}
+
+/* ===== INPUTS ===== */
+
+.card select,
+.card input {
+    background: #14141d;
+    border: 1px solid #1f1f2b;
+    padding: 12px 14px;
+    border-radius: 8px;
+    color: #e6e6eb;
+    font-size: 14px;
+    min-width: 180px;
+}
+
+.card select:focus,
+.card input:focus {
+    outline: none;
+    border-color: #c4b5fd;
+}
+
+/* ===== BUTTON ===== */
+
+.card button {
+    background: #c4b5fd;
+    color: #0b0b0f;
+    border: none;
+    padding: 12px 22px;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.card button:hover {
+    background: #a78bfa;
+}
+
+/* ===== PAYSLIP ===== */
+
+.hidden {
+    display: none;
+}
+
+.payslip {
+    background: #111118;
+    margin-top: 40px;
+    padding: 40px;
+    border-radius: 14px;
+    border: 1px solid #1c1c26;
+    max-width: 700px;
+}
+
+.payslip-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.payslip-header h3 {
+    color: #c4b5fd;
+    font-weight: 500;
+}
+
+.payslip-details p {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #1a1a24;
+}
+
+.payslip-total {
+    margin-top: 25px;
+    text-align: right;
+    font-weight: 600;
+    color: #c4b5fd;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 900px) {
+    .container {
+        padding: 30px;
+    }
+}
+
+.payslip-info {
+    margin: 25px 0;
+}
+
+.payslip-info p {
+    margin-bottom: 12px;
+}
+
+.payslip-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.payslip-header h3 {
+    margin-bottom: 10px;   /* space below company name */
+}
+
+#generatedTime {
+    font-size: 14px;
+    color: #a1a1aa;
+}
+
+.payslip-actions {
+    margin-top: 25px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.payslip-actions button {
+    background: #c4b5fd;
+    color: #0b0b0f;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.payslip-actions button:hover {
+    background: #a78bfa;
+}
+
+@media print {
+
+    body * {
+        visibility: hidden;
+    }
+
+    #payslipPreview,
+    #payslipPreview * {
+        visibility: visible;
+    }
+
+    #payslipPreview {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+    }
+
+}
+.payslip-details p {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #1a1a24;
+}
+.card {
+    display:flex;
+    flex-wrap:nowrap;
+    gap:15px;
+    align-items:center;
+}
+.payslip-actions{
+    margin-top:25px;
+    display:flex;
+    justify-content:flex-end;
+    gap:15px;
+}
+.modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.7);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:2000;
+}
+
+.modal-content{
+    background:#111118;
+    padding:30px;
+    border-radius:12px;
+    border:1px solid #1c1c26;
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+    width:300px;
+}
+
+.modal-content input{
+    background:#14141d;
+    border:1px solid #1f1f2b;
+    padding:12px;
+    border-radius:8px;
+    color:#e6e6eb;
+}
+
+.modal-actions{
+    display:flex;
+    justify-content:flex-end;
+    gap:12px;
+}
+
+.hidden{
+    display:none;
+}
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -280px;
+    width: 280px;
+    height: 100%;
+    background: #111118;
+    padding-top: 90px;
+    transition: 0.35s ease;
+    box-shadow: -10px 0 40px rgba(0,0,0,0.7);
+    z-index: 999;
+}
+
+.sidebar.active {
+    right: 0;
+}
+
+.sidebar a {
+    display: block;
+    padding: 18px 35px;
+    color: #d4d4da;
+    text-decoration: none;
+    transition: 0.25s ease;
+}
+
+.sidebar a:hover {
+    background: #1a1a25;
+    color: #c4b5fd;
+}
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.3s ease;
+}
+
+.overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+/* ===== HAMBURGER ===== */
+
+.hamburger {
+    margin-left: auto;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.hamburger span {
+    width: 26px;
+    height: 2px;
+    background: #e6e6eb;
+    transition: 0.3s ease;
+}
