@@ -26,7 +26,7 @@ Backend - Flask, Pandas, NumPy, Matplotlib, Seaborn
 
 Frontend - HTML, CSS, JavaScript
 
-Project Structure
+'''Project Structure
 Automatic-EDA-Web-App
 │
 ├── app.py
@@ -41,7 +41,7 @@ Automatic-EDA-Web-App
 │
 ├── temp
 │
-└── README.md
+└── README.md'''
 
 Installation
 * Clone the repository
