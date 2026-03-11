@@ -27,7 +27,8 @@ Backend - Flask, Pandas, NumPy, Matplotlib, Seaborn
 Frontend - HTML, CSS, JavaScript
 
 Project Structure
-```Automatic-EDA-Web-App
+```
+Automatic-EDA-Web-App
 │
 ├── app.py
 │
